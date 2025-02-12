@@ -1,4 +1,6 @@
-# Eliza
+# PingPal
+
+this is an AI agent that will help you manage your social media accounts and notify you when you have to do some actions.
 
 ## Edit the character files
 

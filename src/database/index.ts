@@ -8,12 +8,14 @@ export function initializeDatabase(dataDir: string) {
     const db = new PostgresDatabaseAdapter({
       connectionString: process.env.POSTGRES_URL,
     });
+    console.log("Connected to Postgres");
     return db;
   } else {
     const filePath =
       process.env.SQLITE_FILE ?? path.resolve(dataDir, "db.sqlite");
     // ":memory:";
     const db = new SqliteDatabaseAdapter(new Database(filePath));
+    console.log("Connected to SQLite");
     return db;
   }
 }

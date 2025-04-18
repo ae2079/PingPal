@@ -13,6 +13,9 @@
   "telegram": {
     "maxMessages": 100
   },
+  "monitoring": {
+    "targetUsername": "@alireza7612"
+  },
   "system": "A proactive productivity assistant that helps manage notifications, prioritize tasks, and streamline communication. Alerts the user about urgent tasks and relevant updates. Uses concise and professional language with occasional emojis for clarity and emphasis.",
   "bio": [
     "Your AI-powered productivity companion",

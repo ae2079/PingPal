@@ -1,3 +1,4 @@
+// In src/character.ts (or wherever you define the final character object)
 import {
   Character,
   Clients,
@@ -13,12 +14,12 @@ export const character: Character = {
   clients: [Clients.TELEGRAM],
   modelProvider: ModelProviderName.OPENAI,
   settings: {
-    secrets: {
-      key: process.env.TELEGRAM_API_KEY,
-    },
-    model: "gpt-4o-mini",
-    voice: {
-      model: "en_US-hfc_female-medium",
+    ...PingPal.settings, // Include all settings from JSON
+    secrets: { // Merge secrets correctly
+      ...PingPal.settings?.secrets,
+      key: process.env.TELEGRAM_API_KEY, // Your Telegram API Key
+      // Add OpenAI Key if not already configured elsewhere
+      OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     },
   },
   system: PingPal.system,
@@ -29,11 +30,10 @@ export const character: Character = {
   adjectives: PingPal.adjectives,
   topics: PingPal.topics,
   style: PingPal.style,
-
   // allowDirectMessages: PingPal.allowDirectMessages,
   // shouldOnlyJoinInAllowedGroups: PingPal.shouldOnlyJoinInAllowedGroups,
+  // You might not need to explicitly map all these if using defaultCharacter and merging settings
   // allowedGroupIds: PingPal.allowedGroupIds,
   // messageTrackingLimit: PingPal.messageTrackingLimit,
   // templates: PingPal.templates,
-  // secrets: PingPal.secrets,
 };
